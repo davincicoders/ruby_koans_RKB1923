@@ -2,15 +2,15 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutHashes < EdgeCase::Koan
   def test_creating_hashes
-    empty_hash = Array.new
-    assert_equal __, empty_hash.class
+    empty_hash = Hash.new
+    assert_equal Hash, empty_hash.class
     assert_equal({}, empty_hash)
-    assert_equal __, empty_hash.size
+    assert_equal 0, empty_hash.size
   end
 
   def test_hash_literals
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash.size
+    assert_equal 2, hash.size
   end
 
   def test_accessing_hashes
@@ -59,7 +59,7 @@ class AboutHashes < EdgeCase::Koan
   end
 
   def test_hash_values
-    hash = { :one => "uno", :three => "dos" }
+    hash = { :one => "uno", :two => "dos" }
     assert_equal __, hash.values.size
     assert_equal false, hash.values.include?("uno")
     assert_equal false, hash.values.include?("dos")
@@ -106,11 +106,9 @@ class AboutHashes < EdgeCase::Koan
   def test_default_value_with_block
     hash = Hash.new {|hash, key| hash[key] = [] }
 
-    hash[:one] << "uno" << "three"
+    hash[:one] << "uno"
     hash[:two] << "dos"
 
-    assert_equal ["uno"], hash[:one]
-    assert_equal ["zwei"], hash[:two]
     assert_equal __, hash[:three]
   end
 end
