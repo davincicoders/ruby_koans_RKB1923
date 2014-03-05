@@ -60,10 +60,10 @@ class AboutHashes < EdgeCase::Koan
 
   def test_hash_values
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash.values.size
-    assert_equal false, hash.values.include?("uno")
-    assert_equal false, hash.values.include?("dos")
-    assert_equal __, hash.values.class
+    assert_equal 2, hash.values.size
+    assert_equal true, hash.values.include?("uno")
+    assert_equal true, hash.values.include?("dos")
+    assert_equal Array, hash.values.class
   end
 
   def test_combining_hashes
@@ -109,6 +109,8 @@ class AboutHashes < EdgeCase::Koan
     hash[:one] << "uno"
     hash[:two] << "dos"
 
-    assert_equal __, hash[:three]
+    assert_equal ["uno"], hash[:one]
+    assert_equal ["dos"], hash[:two]
+    assert_equal [], hash[:three]
   end
 end
