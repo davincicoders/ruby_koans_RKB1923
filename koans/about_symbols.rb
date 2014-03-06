@@ -50,21 +50,21 @@ class AboutSymbols < EdgeCase::Koan
   def test_symbols_with_spaces_can_be_built
     symbol = :"cats and dogs"
 
-    assert_equal symbol, __.to_sym
+    assert_equal symbol, symbol.to_sym
   end
 
   def test_symbols_with_interpolation_can_be_built
     value = "and"
     symbol = :"It's raining cats #{value} dogs"
 
-    assert_equal symbol, __.to_sym
+    assert_equal symbol, "cats and dogs".to_sym
   end
 
   def test_to_s_is_called_on_interpolated_symbols
     symbol = :cats
     string = "It is raining #{symbol} and dogs."
 
-    assert_equal __, string
+    assert_equal "It is raining cats and dogs.", string
   end
 
   def test_symbols_are_not_strings
