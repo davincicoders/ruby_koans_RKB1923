@@ -25,6 +25,7 @@ class AboutSymbols < EdgeCase::Koan
 
   def test_method_names_become_symbols
     symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
+    assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
   end
 
   # THINK ABOUT IT:
@@ -37,13 +38,13 @@ class AboutSymbols < EdgeCase::Koan
     def test_constants_become_symbols
       all_symbols = Symbol.all_symbols
 
-      assert_equal __, all_symbols.include?(__)
+      assert_equal false, all_symbols.include?(RubyConstant)
     end
   end
 
   def test_symbols_can_be_made_from_strings
     string = "catsAndDogs"
-    assert_equal __, string.to_sym
+    assert_equal :catsAndDogs, string.to_sym
   end
 
   def test_symbols_with_spaces_can_be_built
@@ -68,6 +69,8 @@ class AboutSymbols < EdgeCase::Koan
 
   def test_symbols_are_not_strings
     symbol = :ruby
+    assert_equal __, symbol.is_a?(String)
+    assert_equal __, symbol.eql?("ruby")
   end
 
   def test_symbols_do_not_have_string_methods
