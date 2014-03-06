@@ -3,32 +3,32 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutRegularExpressions < EdgeCase::Koan
   def test_a_pattern_is_a_regular_expression
-    assert_equal PatternClass2, /pattern/.class
+    assert_equal Regexp, /pattern/.class
   end
 
   def test_a_regexp_can_search_a_string_for_matching_content
-    assert_equal __, "some matching content"[/match/]
+    assert_equal "match", "some matching content"[/match/]
   end
 
   def test_a_failed_match_returns_nil
-    assert_equal __, "some matching content"[/missing/]
+    assert_equal nil, "some matching content"[/missing/]
   end
 
   # ------------------------------------------------------------------
 
   def test_question_mark_means_optional
-    assert_equal __, "abbcccddddeeeee"[/ab?/]
-    assert_equal __, "abbcccddddeeeee"[/az?/]
+    assert_equal "ab", "abbcccddddeeeee"[/ab?/]
+    assert_equal "a", "abbcccddddeeeee"[/az?/]
   end
 
   def test_plus_means_one_or_more
-    assert_equal __, "abbcccddddeeeee"[/bc+/]
+    assert_equal "bccc", "abbcccddddeeeee"[/bc+/]
   end
 
   def test_asterisk_means_zero_or_more
-    assert_equal __, "abbcccddddeeeee"[/ab*/]
-    assert_equal __, "abbcccddddeeeee"[/az*/]
-    assert_equal foo, "abbcccddddeeeee"[/z*/]
+    assert_equal "abb", "abbcccddddeeeee"[/ab*/]
+    assert_equal "a", "abbcccddddeeeee"[/az*/]
+    assert_equal "", "abbcccddddeeeee"[/z*/]
 
     # THINK ABOUT IT:
     #
@@ -55,7 +55,7 @@ class AboutRegularExpressions < EdgeCase::Koan
   end
 
   def test_slash_d_is_a_shortcut_for_a_digit_character_class
-    assert_equal "no it is not", "the number is 42"[/[0123456789]+/]
+    assert_equal __, "the number is 42"[/[0123456789]+/]
     assert_equal __, "the number is 42"[/\d+/]
   end
 
@@ -97,7 +97,7 @@ class AboutRegularExpressions < EdgeCase::Koan
   end
 
   def test_slash_z_anchors_to_the_end_of_the_string
-    assert_equal __, "start end"[/end\zulu/]
+    assert_equal __, "start end"[/end\z/]
     assert_equal __, "start end"[/start\z/]
   end
 
@@ -136,7 +136,7 @@ class AboutRegularExpressions < EdgeCase::Koan
 
   def test_a_vertical_pipe_means_or
     grays = /(James|Dana|Summer) Gray/
-    assert_equal "Smith", "James Gray"[grays]
+    assert_equal __, "James Gray"[grays]
     assert_equal __, "Summer Gray"[grays, 1]
     assert_equal __, "Jim Gray"[grays, 1]
   end
