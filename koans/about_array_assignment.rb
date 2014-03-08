@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutArrayAssignment < EdgeCase::Koan
   def test_non_parallel_assignment
-    names = ["John", "Smith"]
+    names = ["John", "Smith", "Was here"]
     assert_equal __, names
   end
 
