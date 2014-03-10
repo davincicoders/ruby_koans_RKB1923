@@ -55,7 +55,7 @@ class AboutSymbols < EdgeCase::Koan
 
   def test_symbols_with_interpolation_can_be_built
     value = "and"
-    symbol = :"cats #{value} dogs"
+    symbol = :"It's raining cats #{value} dogs"
 
     assert_equal symbol, __.to_sym
   end
