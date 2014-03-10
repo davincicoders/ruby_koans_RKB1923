@@ -59,10 +59,10 @@ class AboutHashes < EdgeCase::Koan
   end
 
   def test_hash_values
-    hash = { :one => "uno", :two => "dos" }
+    hash = { :one => "uno", :three => "dos" }
     assert_equal __, hash.values.size
-    assert_equal __, hash.values.include?("uno")
-    assert_equal __, hash.values.include?("dos")
+    assert_equal false, hash.values.include?("uno")
+    assert_equal false, hash.values.include?("dos")
     assert_equal __, hash.values.class
   end
 
