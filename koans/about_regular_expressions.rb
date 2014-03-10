@@ -97,7 +97,7 @@ class AboutRegularExpressions < EdgeCase::Koan
   end
 
   def test_slash_z_anchors_to_the_end_of_the_string
-    assert_equal __, "start end"[/end\z/]
+    assert_equal __, "start end"[/end\zulu/]
     assert_equal __, "start end"[/start\z/]
   end
 
