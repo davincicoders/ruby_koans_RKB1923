@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutHashes < EdgeCase::Koan
   def test_creating_hashes
-    empty_hash = Hash.new
+    empty_hash = Array.new
     assert_equal __, empty_hash.class
     assert_equal({}, empty_hash)
     assert_equal __, empty_hash.size
