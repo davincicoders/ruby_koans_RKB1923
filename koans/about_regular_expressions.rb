@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutRegularExpressions < EdgeCase::Koan
   def test_a_pattern_is_a_regular_expression
-    assert_equal PatternClass, /pattern/.class
+    assert_equal PatternClass2, /pattern/.class
   end
 
   def test_a_regexp_can_search_a_string_for_matching_content
@@ -28,7 +28,7 @@ class AboutRegularExpressions < EdgeCase::Koan
   def test_asterisk_means_zero_or_more
     assert_equal __, "abbcccddddeeeee"[/ab*/]
     assert_equal __, "abbcccddddeeeee"[/az*/]
-    assert_equal __, "abbcccddddeeeee"[/z*/]
+    assert_equal foo, "abbcccddddeeeee"[/z*/]
 
     # THINK ABOUT IT:
     #
