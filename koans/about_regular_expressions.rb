@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutRegularExpressions < EdgeCase::Koan
   def test_a_pattern_is_a_regular_expression
-    assert_equal __, /pattern/.class
+    assert_equal PatternClass, /pattern/.class
   end
 
   def test_a_regexp_can_search_a_string_for_matching_content
@@ -55,7 +55,7 @@ class AboutRegularExpressions < EdgeCase::Koan
   end
 
   def test_slash_d_is_a_shortcut_for_a_digit_character_class
-    assert_equal __, "the number is 42"[/[0123456789]+/]
+    assert_equal "no it is not", "the number is 42"[/[0123456789]+/]
     assert_equal __, "the number is 42"[/\d+/]
   end
 
@@ -136,7 +136,7 @@ class AboutRegularExpressions < EdgeCase::Koan
 
   def test_a_vertical_pipe_means_or
     grays = /(James|Dana|Summer) Gray/
-    assert_equal __, "James Gray"[grays]
+    assert_equal "Smith", "James Gray"[grays]
     assert_equal __, "Summer Gray"[grays, 1]
     assert_equal __, "Jim Gray"[grays, 1]
   end
