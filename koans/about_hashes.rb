@@ -106,11 +106,11 @@ class AboutHashes < EdgeCase::Koan
   def test_default_value_with_block
     hash = Hash.new {|hash, key| hash[key] = [] }
 
-    hash[:one] << "uno"
+    hash[:one] << "uno" << "three"
     hash[:two] << "dos"
 
-    assert_equal __, hash[:one]
-    assert_equal __, hash[:two]
+    assert_equal ["uno"], hash[:one]
+    assert_equal ["zwei"], hash[:two]
     assert_equal __, hash[:three]
   end
 end
