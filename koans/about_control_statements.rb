@@ -70,14 +70,14 @@ class AboutControlStatements < EdgeCase::Koan
     unless true    # same as saying 'if !true', which evaluates as 'if false'
       result = :true_value
     end
-    assert_equal __, result
+    assert_equal :default_value, result
   end
 
   def test_unless_statement_modifier
     result = :default_value
     result = :false_value unless false
 
-    assert_equal __, result
+    assert_equal :false_value, result
   end
 
   def test_while_statement
